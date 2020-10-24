@@ -17,7 +17,7 @@ namespace VRef
 
             // -> Send vertex data for the vertex buffer:
             glBufferData(GL_ARRAY_BUFFER, arraySize, vertexArray, GL_STATIC_DRAW);
-
+            
             // glBufferData reference: https://www.khronos.org/opengl/wiki/GLAPI/glBufferData
 
             // GL_STREAM_DRAW: if the data is set only once and used by the GPU at most a few times.

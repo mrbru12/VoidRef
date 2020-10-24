@@ -37,7 +37,7 @@ bool initOpenGL(unsigned int& VAO, unsigned int& VBO, unsigned int& EBO)
     // -> Vertex buffer object assign:
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-
+    
     // -> Element buffer object assign:
     glGenBuffers(1, &EBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
