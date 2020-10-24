@@ -1,0 +1,23 @@
+# Project extensions
+# ==============
+*.sln
+*.vcxproj
+*.filters
+*.user
+
+# Project directories
+# ==============
+.vs/
+.vs/VoidRef/v16/
+.git/
+Bin/
+Bin-Intermediate/
+VoidRef/Resources/
+
+# Libraries directories
+# ==============
+VoidRef/Dependencies/
+
+# Project files
+# ==============
+TODO.txt
