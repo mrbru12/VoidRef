@@ -25,7 +25,7 @@ void compileShaderSource(unsigned int& shaderId, const char* shaderSource)
     }
 }
 
-void concatenateLines(const char* path, const size_t& textBufferSize, char* textBuffer)
+void concatenateFileLines(const char* path, const size_t& textBufferSize, char* textBuffer)
 {
     FILE* file;
 
@@ -89,10 +89,10 @@ namespace VRef
         const size_t size = 1024 * 10;
 
         char* vertexShader = new char[size] { NULL };
-        concatenateLines(vertexPath, size, vertexShader);
+        concatenateFileLines(vertexPath, size, vertexShader);
 
         char* fragmentShader = new char[size] { NULL };
-        concatenateLines(fragmentPath, size, fragmentShader);
+        concatenateFileLines(fragmentPath, size, fragmentShader);
 
         // Little debug logging for checks:
         /*
