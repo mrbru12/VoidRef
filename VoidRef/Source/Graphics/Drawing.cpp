@@ -46,7 +46,7 @@ namespace VRef
             glBufferData(GL_ELEMENT_ARRAY_BUFFER, indicesArraySize, indicesArray, GL_STATIC_DRAW);
 
             // -> Set how the data in EBO should be interpreted as a drawing
-            glDrawElements(GL_TRIANGLES, indicesArraySize * sizeof(indicesArray[0]), GL_UNSIGNED_INT, NULL);
+            glDrawElements(GL_TRIANGLES, indicesArraySize, GL_UNSIGNED_INT, NULL);
             
             shader.unbind();
         }
@@ -66,5 +66,16 @@ namespace VRef
             shader.unbind();
         }
         */
+
+        void rectangle(Shader& shader, size_t arraySize, float* vertexArray)
+        {
+            unsigned int indices[6] =
+            {
+                0, 1, 2,
+                1, 2, 3
+            };
+            
+            triangle(shader, arraySize, vertexArray, sizeof(indices), indices);
+        }
     }
 }

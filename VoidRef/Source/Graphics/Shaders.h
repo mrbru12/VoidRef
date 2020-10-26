@@ -2,6 +2,8 @@
 
 namespace VRef
 {
+    // namespace GL
+
     class Shader
     {
     public:

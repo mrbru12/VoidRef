@@ -10,8 +10,10 @@ class App : public VRef::Program
 public:
     bool onCreate() override
     {
-        testShader.loadFromFile("C:/Dev/C++/VoidRef/Sandbox/Resources/Shaders/testShader.vert", 
-                                "C:/Dev/C++/VoidRef/Sandbox/Resources/Shaders/testShader.frag");
+        testShaderPurple.loadFromFile("C:/Dev/C++/VoidRef/Sandbox/Resources/Shaders/testShader.vert", 
+                                "C:/Dev/C++/VoidRef/Sandbox/Resources/Shaders/testShaderPurple.frag");
+        testShaderRed.loadFromFile("C:/Dev/C++/VoidRef/Sandbox/Resources/Shaders/testShader.vert",
+                                "C:/Dev/C++/VoidRef/Sandbox/Resources/Shaders/testShaderRed.frag");
 
         triangleVertices = new float[9]
         {
@@ -39,11 +41,13 @@ public:
 
     bool onUpdate() override
     {
-        VRef::Draw::triangle(testShader, 9 * sizeof(float), triangleVertices);
+        // VRef::Draw::triangle(testShaderPurple, 9 * sizeof(float), triangleVertices);
         
-        VRef::Draw::triangle(testShader, 
+        VRef::Draw::triangle(testShaderRed, 
                              12 * sizeof(float), rectangleVertices, 
                              6 * sizeof(unsigned int), rectangleIndices);
+
+        // VRef::Draw::rectangle(testShaderRed, 12 * sizeof(float), rectangleVertices);
 
         return true;
     }
@@ -56,7 +60,8 @@ public:
     }
 
 private:
-    VRef::Shader testShader;
+    VRef::Shader testShaderPurple;
+    VRef::Shader testShaderRed;
 
     float* triangleVertices;
 

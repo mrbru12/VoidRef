@@ -21,6 +21,7 @@ namespace VRef
             
             // -> Element buffer object assign:
             glGenBuffers(1 /* eboCount */, EboIds);
+            // TODO: Pensar em como eu vou fazer os binds quando tiver mais de um buffer de cada tipo!
             bindBuffer(GL_ELEMENT_ARRAY_BUFFER, EboIds[0]);
         }
 
