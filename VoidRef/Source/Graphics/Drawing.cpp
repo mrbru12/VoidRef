@@ -14,7 +14,7 @@ namespace VRef
         {
             // -> Bind Shader program:
             shader.bind();
-
+            
             // -> Send vertex data for the vertex buffer:
             glBufferData(GL_ARRAY_BUFFER, arraySize, vertexArray, GL_STATIC_DRAW);
             

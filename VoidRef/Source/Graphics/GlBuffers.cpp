@@ -1,5 +1,7 @@
 #include "GlBuffers.h"
 
+#include "../Debug/Log.h"
+
 #ifndef NULL
 #define NULL 0
 #endif
@@ -25,11 +27,6 @@ namespace VRef
             bindBuffer(GL_ELEMENT_ARRAY_BUFFER, EboIds[0]);
         }
 
-        void VAO::writeBufferData(GLenum target, GLsizeiptr size, const void* data, GLenum usage)
-        {
-
-        }
-
         void VAO::bind()
         {
             glBindVertexArray(VaoId);
@@ -38,6 +35,29 @@ namespace VRef
         void VAO::unbind()
         {
             glBindVertexArray(NULL);
+        }
+
+        void VAO::genBuffers(GLenum target, GLsizei n)
+        {
+            switch (target)
+            {
+            case GL_ARRAY_BUFFER:
+                glGenBuffers(n, VboIds);
+                break;
+
+            case GL_ELEMENT_ARRAY_BUFFER:
+                glGenBuffers(n, EboIds);
+                break;
+
+            default:
+                Debug::log(VREF_ERROR, "VAO::genBuffers(): Wrong buffer target!");
+                break;
+            }
+        }
+
+        void VAO::writeBufferData(GLenum target, GLsizeiptr size, const void* data, GLenum usage)
+        {
+
         }
 
         void VAO::bindBuffer(GLenum target, GLuint bufferId)

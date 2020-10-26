@@ -29,7 +29,7 @@ public:
             -0.5f, 0.5f, 1.0f,
             0.5f, 0.5f, 1.0f
         };
-
+        
         rectangleIndices = new unsigned int[6]
         {
             0, 1, 2,
@@ -51,7 +51,7 @@ public:
 
         return true;
     }
-
+    
     void onDestroy() override
     {
         delete[] triangleVertices;
@@ -62,7 +62,7 @@ public:
 private:
     VRef::Shader testShaderPurple;
     VRef::Shader testShaderRed;
-
+    
     float* triangleVertices;
 
     float* rectangleVertices;
