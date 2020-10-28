@@ -13,23 +13,26 @@ namespace VRef
         VAO::VAO(/* GLsizei vboCount, GLsizei eboCount */)
         {
             // -> Vertex array object assign:
-            glGenVertexArrays(1, &VaoId);
-            // bind(); Fazer isso para automaticamente dar bind() quando criar um VAO!
+            glGenVertexArrays(1, &vaoId);
+            bind(); // Fazer isso para automaticamente dar bind() quando criar um VAO!
             
             // -> Vertex buffer object assign:
-            glGenBuffers(1  /* vboCount */, VboIds);
+            genBuffers(GL_ARRAY_BUFFER, 1); // glGenBuffers(1  /* vboCount */, VboIds);
             // TODO: Pensar em como eu vou fazer os binds quando tiver mais de um buffer de cada tipo!
-            bindBuffer(GL_ARRAY_BUFFER, VboIds[0]);
+            bindBuffer(GL_ARRAY_BUFFER, vboIds[0]);
             
             // -> Element buffer object assign:
-            glGenBuffers(1 /* eboCount */, EboIds);
+            genBuffers(GL_ELEMENT_ARRAY_BUFFER, 1); // glGenBuffers(1 /* eboCount */, EboIds);
             // TODO: Pensar em como eu vou fazer os binds quando tiver mais de um buffer de cada tipo!
-            bindBuffer(GL_ELEMENT_ARRAY_BUFFER, EboIds[0]);
+            bindBuffer(GL_ELEMENT_ARRAY_BUFFER, eboIds[0]);
+
+            // -> Vertex attributes configuration:
+            setVertexAttributes(3, GL_FLOAT, 3 * sizeof(float));
         }
 
         void VAO::bind()
         {
-            glBindVertexArray(VaoId);
+            glBindVertexArray(vaoId);
         }
 
         void VAO::unbind()
@@ -42,11 +45,11 @@ namespace VRef
             switch (target)
             {
             case GL_ARRAY_BUFFER:
-                glGenBuffers(n, VboIds);
+                glGenBuffers(n, vboIds);
                 break;
 
             case GL_ELEMENT_ARRAY_BUFFER:
-                glGenBuffers(n, EboIds);
+                glGenBuffers(n, eboIds);
                 break;
 
             default:
@@ -55,9 +58,23 @@ namespace VRef
             }
         }
 
+        void VAO::setVertexAttributes(GLint size, GLenum type, GLsizei stride)
+        {
+            glVertexAttribPointer(0, size, type, GL_FALSE, stride, (void*)NULL);
+            glEnableVertexAttribArray(0);
+        }
+
+        // TODO: Talvez abandonar essa função e usar só a overloaded botando o parametro bufferId = 0
         void VAO::writeBufferData(GLenum target, GLsizeiptr size, const void* data, GLenum usage)
         {
+            glBufferData(target, size, data, usage);
+        }
 
+        void VAO::writeBufferData(GLenum target, GLuint bufferId, GLsizeiptr size, const void* data, GLenum usage)
+        {
+            bindBuffer(target, bufferId);
+
+            writeBufferData(target, size, data, usage); // glBufferData(target, size, data, usage);
         }
 
         void VAO::bindBuffer(GLenum target, GLuint bufferId)
