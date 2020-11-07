@@ -42,6 +42,8 @@ namespace VRef
 
         void VAO::genBuffers(GLenum target, GLsizei n)
         {
+            // bind();
+
             switch (target)
             {
             case GL_ARRAY_BUFFER:
@@ -60,11 +62,14 @@ namespace VRef
 
         void VAO::setVertexAttributes(GLint size, GLenum type, GLsizei stride)
         {
+            bind();
+
             glVertexAttribPointer(0, size, type, GL_FALSE, stride, (void*)NULL);
             glEnableVertexAttribArray(0);
         }
 
         // TODO: Talvez abandonar essa função e usar só a overloaded botando o parametro bufferId = 0
+        /*
         void VAO::writeBufferData(GLenum target, GLsizeiptr size, const void* data, GLenum usage)
         {
             glBufferData(target, size, data, usage);
@@ -76,9 +81,12 @@ namespace VRef
 
             writeBufferData(target, size, data, usage); // glBufferData(target, size, data, usage);
         }
+        */
 
         void VAO::bindBuffer(GLenum target, GLuint bufferId)
         {
+            bind();
+
             glBindBuffer(target, bufferId);
         }
     }

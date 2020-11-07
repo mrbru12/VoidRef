@@ -101,6 +101,7 @@ namespace VRef
         glViewport(0, 0, w, h);
 
         // -> Set window clear color:
+        // TODO: Talvez precise setar a glClearColor a cada frame!
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         // -> SDL Renderer initialization:

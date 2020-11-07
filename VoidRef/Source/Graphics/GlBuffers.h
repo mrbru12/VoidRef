@@ -22,8 +22,8 @@ namespace VRef
 
             void setVertexAttributes(GLint size, GLenum type, GLsizei stride);
             
-            void writeBufferData(GLenum target, GLsizeiptr size, const void* data, GLenum usage);
-            void writeBufferData(GLenum target, GLuint bufferId, GLsizeiptr size, const void* data, GLenum usage); // GLuint bufferId = 0
+            // void writeBufferData(GLenum target, GLsizeiptr size, const void* data, GLenum usage);
+            // void writeBufferData(GLenum target, GLuint bufferId, GLsizeiptr size, const void* data, GLenum usage); // GLuint bufferId = 0
 
             void bindBuffer(GLenum target, GLuint bufferId);
             // void unbindBuffer(GLenum target);

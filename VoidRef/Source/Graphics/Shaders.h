@@ -15,6 +15,10 @@ namespace VRef
         void bind();
         void unbind();
 
+        void setInt(const char* name, int value);
+        void setFloat(const char* name, float value);
+        void setBool(const char* name, bool value);
+
     private:
         unsigned int programId;
         unsigned int vertexId;
