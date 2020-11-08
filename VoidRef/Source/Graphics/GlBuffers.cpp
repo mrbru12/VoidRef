@@ -1,3 +1,7 @@
+// DE ACORDO COM ESSA ENTRY NA WIKI https://www.khronos.org/opengl/wiki/Common_Mistakes#The_Object_Oriented_Language_Problem
+// APARENTEMENTE É UMA PÉSSIMA IDEIA FAZER OS OBJECTS E BUFFERS DO OPENGL ORIENTADOS A OBJETO!
+
+/*
 #include "GlBuffers.h"
 
 #include "../Debug/Log.h"
@@ -10,19 +14,19 @@ namespace VRef
 {
     namespace GL
     {
-        VAO::VAO(/* GLsizei vboCount, GLsizei eboCount */)
+        VAO::VAO()
         {
             // -> Vertex array object assign:
             glGenVertexArrays(1, &vaoId);
             bind(); // Fazer isso para automaticamente dar bind() quando criar um VAO!
-            
+
             // -> Vertex buffer object assign:
-            genBuffers(GL_ARRAY_BUFFER, 1); // glGenBuffers(1  /* vboCount */, VboIds);
+            genBuffers(GL_ARRAY_BUFFER, 1); // glGenBuffers(vboCount, VboIds);
             // TODO: Pensar em como eu vou fazer os binds quando tiver mais de um buffer de cada tipo!
             bindBuffer(GL_ARRAY_BUFFER, vboIds[0]);
-            
+
             // -> Element buffer object assign:
-            genBuffers(GL_ELEMENT_ARRAY_BUFFER, 1); // glGenBuffers(1 /* eboCount */, EboIds);
+            genBuffers(GL_ELEMENT_ARRAY_BUFFER, 1); // glGenBuffers(eboCount, EboIds);
             // TODO: Pensar em como eu vou fazer os binds quando tiver mais de um buffer de cada tipo!
             bindBuffer(GL_ELEMENT_ARRAY_BUFFER, eboIds[0]);
 
@@ -69,19 +73,18 @@ namespace VRef
         }
 
         // TODO: Talvez abandonar essa função e usar só a overloaded botando o parametro bufferId = 0
-        /*
-        void VAO::writeBufferData(GLenum target, GLsizeiptr size, const void* data, GLenum usage)
-        {
-            glBufferData(target, size, data, usage);
-        }
+        
+        // void VAO::writeBufferData(GLenum target, GLsizeiptr size, const void* data, GLenum usage)
+        // {
+        //     glBufferData(target, size, data, usage);
+        // }
 
-        void VAO::writeBufferData(GLenum target, GLuint bufferId, GLsizeiptr size, const void* data, GLenum usage)
-        {
-            bindBuffer(target, bufferId);
+        // void VAO::writeBufferData(GLenum target, GLuint bufferId, GLsizeiptr size, const void* data, GLenum usage)
+        // {
+        //     bindBuffer(target, bufferId);
 
-            writeBufferData(target, size, data, usage); // glBufferData(target, size, data, usage);
-        }
-        */
+        //     writeBufferData(target, size, data, usage); // glBufferData(target, size, data, usage);
+        // }
 
         void VAO::bindBuffer(GLenum target, GLuint bufferId)
         {
@@ -91,3 +94,4 @@ namespace VRef
         }
     }
 }
+*/

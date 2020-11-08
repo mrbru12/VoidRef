@@ -2,7 +2,6 @@
 
 #include <glad/glad.h>
 
-// #include "../Types/Array.h"
 #include "../Graphics/Shaders.h"
 
 namespace VRef
@@ -10,15 +9,10 @@ namespace VRef
     namespace Draw
     {
         void triangle(Shader& shader, size_t size, float* vertices, GLenum usage = GL_STATIC_DRAW);
-        // void triangle(GL::VAO& vao, Shader& shader, size_t size, float* vertices, GLenum usage = GL_STATIC_DRAW);
         void triangle(Shader& shader, 
                       size_t verticesSize, float* vertices, 
                       size_t indicesSize, unsigned int* indices,
                       GLenum usage = GL_STATIC_DRAW);
-        // void triangle(GL::VAO& vao, Shader& shader,
-        //               size_t verticesSize, float* vertices,
-        //               size_t indicesSize, unsigned int* indices,
-        //               GLenum usage = GL_STATIC_DRAW);
 
         void line(Shader& shader, size_t size, float* vertices, GLenum usage = GL_STATIC_DRAW);
         void line(Shader& shader,

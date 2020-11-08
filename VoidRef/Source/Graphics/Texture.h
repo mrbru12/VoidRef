@@ -2,8 +2,6 @@
 
 #include <SDL.h>
 
-// #include "../Math/Vector.h"
-
 namespace VRef
 {
     class Texture

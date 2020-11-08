@@ -1,3 +1,7 @@
+// DE ACORDO COM ESSA ENTRY NA WIKI https://www.khronos.org/opengl/wiki/Common_Mistakes#The_Object_Oriented_Language_Problem
+// APARENTEMENTE É UMA PÉSSIMA IDEIA FAZER OS OBJECTS E BUFFERS DO OPENGL ORIENTADOS A OBJETO!
+
+/*
 #pragma once
 
 #include <glad/glad.h>
@@ -13,7 +17,7 @@ namespace VRef
             //       acordo com as docs do OpenGL um VAO pode ter até 16 VBOs diferentes!
             
         public:
-            VAO(/* TODO: Quantidade de buffers de cada tipo para criar */);
+            VAO();
 
             void bind();
             void unbind();
@@ -46,3 +50,4 @@ namespace VRef
         };
     }
 }
+*/

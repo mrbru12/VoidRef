@@ -122,17 +122,17 @@ namespace VRef
         glUseProgram(NULL);
     }
 
-    void setInt(const char* name, int value)
+    void Shader::setInt(const char* name, int value)
     {
 
     }
 
-    void setFloat(const char* name, float value)
+    void Shader::setFloat(const char* name, float value)
     {
 
     }
 
-    void setBool(const char* name, bool value)
+    void Shader::setBool(const char* name, bool value)
     {
         setInt(name, (int)value);
     }

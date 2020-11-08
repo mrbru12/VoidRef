@@ -8,9 +8,7 @@
 #include <SDL_image.h>
 
 #include "Debug/Log.h"
-#include "Types/Vector.h"
-// #include "Types/Array.h"
-#include "Graphics/GlBuffers.h"
+// #include "Graphics/GlBuffers.h"
 #include "Graphics/Shaders.h"
 #include "Graphics/Texture.h"
 #include "Graphics/Drawing.h"
